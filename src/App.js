@@ -1,24 +1,36 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import {BrowserRouter, Switch, Route, NavLink} from 'react-router-dom';
+import TodoList from './component/todolist/todoList'
+import Header from './component/header/header'
+import TodoPage from './component/todolist/todoPage'
+import { Link, animateScroll as scroll } from "react-scroll";
+import Scroll from "./scroll"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Header /> */}
+      <Scroll />
+      
+      {/* <Switch>
+        <Route path = "/todolist" exact>
+          <TodoList />
+        </Route>
+        <Route path = "/todo/:id" exact>
+          <TodoPage />
+        </Route>
+        <Route path = "/counter" exact>
+          
+        </Route>
+        <Route path = "/search" exact>
+          
+        </Route>
+        <Route  path = "*">
+
+        </Route>
+      </Switch> */}
+    </>
   );
 }
 
