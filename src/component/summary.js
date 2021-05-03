@@ -1,4 +1,4 @@
-const summary = (props) => {
+const Summary = (props) => {
     return(
     <>
     <h3>{props.title}</h3>
@@ -8,4 +8,4 @@ const summary = (props) => {
         
     )
 }
-export default summary;
+export default Summary;
