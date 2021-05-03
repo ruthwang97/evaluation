@@ -10,26 +10,7 @@ import Scroll from "./scroll"
 function App() {
   return (
     <>
-      {/* <Header /> */}
       <Scroll />
-      
-      {/* <Switch>
-        <Route path = "/todolist" exact>
-          <TodoList />
-        </Route>
-        <Route path = "/todo/:id" exact>
-          <TodoPage />
-        </Route>
-        <Route path = "/counter" exact>
-          
-        </Route>
-        <Route path = "/search" exact>
-          
-        </Route>
-        <Route  path = "*">
-
-        </Route>
-      </Switch> */}
     </>
   );
 }
