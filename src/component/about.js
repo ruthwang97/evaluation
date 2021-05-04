@@ -56,4 +56,4 @@ const About = ()=>{
 </div>)
 }
 
-export default Button;
+export default About;
