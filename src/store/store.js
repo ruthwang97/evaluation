@@ -2,38 +2,25 @@ import { createStore } from "redux";
 import React from 'react';
 
 
-export const ADD_TODO = (content) => ({
-    type: 'add',
+export const changeValue = (content, num) => ({
+    type: 'change',
     payload: {
+        num: num,
         content: content
     }
 })
 
-export const DEL_TODO = (id) => ({
-    type: 'del',
-    payload: {
-        id:id
-    }
-})
 
-const reducers = (state = {tot:0, content:{}}, action) => {
+
+const reducers = (state = {input1: '', input2: '', input3: '', input4: ''}, action) => {
     switch (action.type){
-        case 'add':{
-            console.log("store");
-            console.log(state);
+        case 'change':{
+            state[action.payload.num] = action.payload.content;
 
             return{
-                tot : state.tot +1,
-                content :{...state.content, [state.tot]:action.payload.content}
+                ...state
             }
             
-        }
-        case 'del': {
-            delete state.content[action.payload.id]
-            return{
-                tot: state.tot,
-                content: state.content
-            }
         }
         default:
             return state;

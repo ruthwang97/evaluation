@@ -6,12 +6,21 @@ import pic5 from "./images/facebook.svg";
 import pic6 from "./images/linkedin.svg";
 import pic7 from "./images/pinterest.svg";
 import pic8 from "./images/email.svg";
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Summary from './component/summary';
 import Navigation from './component/navigation';
 import Button from './component/button'
 import Project from './component/project'
+import './App.css';
+import Media from './component/media'
+import withHandler from './component/hoc'
+import {FontColorContext} from './App'
+
+
 const Scroll = () =>{
+    const context = useContext(FontColorContext)
+    console.log(context)
+
     const [input1 ,setInput1] = useState('');
     const [input2 ,setInput2] = useState('');
     const [input3 ,setInput3] = useState('');
@@ -48,7 +57,7 @@ const Scroll = () =>{
 			<div class = "container-fluid">
 				<div class = "row">
 					<div class = "entry-banner text-center">
-						<h1 id = "hello">Hello, I'm</h1>
+						<h1 id = "hello" >Hello, I'm</h1>
 						<h1 id = "name">XXXX</h1>
 						<h1 id = "person-description">UI Developer. UX Desinger. Problem Solver.</h1>
 					</div>
@@ -124,7 +133,7 @@ const Scroll = () =>{
 
         <div class = "summary">
 			<div class = "container-fluid">
-				<div class = "row">
+            <div class = "row">
                     <Summary group1 = "development-summary" left={true} imgGroup = "development-img" src={pic1} group2 = "development-description" 
                     title = "Development and Design" para = "I aim to put my creativity to the test, designing and building unique, meaningful products for clients or merely for my own interests."/>
 					<Summary group1 = "responsive-summary" left={false} imgGroup = "responsive-img" src={pic2} group2 = "responsive-description"
@@ -140,11 +149,12 @@ const Scroll = () =>{
 			</div>
 		</div>
         <div class = "projects" id="projects">
+            
 			<div class = "container-fluid">
 				<div class = "row">
 					<div class = "col-sm-12 col-md-12 text-center">
 						<div class = "projects-header">
-							<h1>Projects and Portfolio</h1>
+							<h1 style={{fontFamily:`context`}}>Projects and Portfolio</h1>
 						</div>
 					</div>
 				</div>
@@ -173,11 +183,12 @@ const Scroll = () =>{
 			</div>
 		</div>
         <div class = "contact" id="contact">
+            
 			<div class = "container-fluid">
 				<div class = "row">
 					<div class = "col-sm-12 col-md-12 text-center">
 						<div class = "contact-header">
-							<h1>Contact</h1>
+							<h1 style={{fontFamily:`context`}}>Contact</h1>
 						</div>
 					</div>
 				</div>
@@ -210,7 +221,8 @@ const Scroll = () =>{
 					<div class = "col-sm-6 col-md-6">
 						<div class = "contact-form-body">
 							<form>
-								<div class = "row">
+								<div class = "row">			
+
 									<div class = "col-sm-6 col-md-6">
 										<div class = "firstname">
 											<h4>Full Name *</h4>
@@ -262,29 +274,10 @@ const Scroll = () =>{
 			<div class = "container-fluid">
 				<div class = "row">
 					<div class = "media-links">
-						<div class = "col-sm-1 col-md-1 col-sm-offset-4 col-md-offset-4">
-							<div class = "facebook">
-								<a href = "#"><img class = "img-responsive" src = {pic5} /></a>
-							</div>
-						</div>
-
-						<div class = "col-sm-1 col-md-1">
-							<div class = "linkedin">
-								<a href = "#"><img class = "img-responsive" src = {pic6} /></a>
-							</div>
-						</div>
-
-						<div class = "col-sm-1 col-md-1">
-							<div class = "pinterest">
-								<a href = "#"><img class = "img-responsive" src = {pic7}/></a>
-							</div>
-						</div>
-
-						<div class = "col-sm-1 col-md-1">
-							<div class = "email-icon">
-								<a href = "#"><img class = "img-responsive" src = {pic8} /></a>
-							</div>
-						</div>
+                        <Media first = {true} group = "facebook" src = {pic5}/>
+						<Media first = {false} group = "linkedin" src = {pic6}/>
+                        <Media first = {false} group = "pinterest" src = {pic7}/>
+                        <Media first = {false} group = "email-icon" src = {pic8}/>
 					</div>
 				</div>
 
