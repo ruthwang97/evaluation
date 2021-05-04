@@ -5,7 +5,6 @@ const Media = (props) => {
         <a href = "#"><img class = "img-responsive" src = {props.src} /></a>
     </div>
 </div>
-        
     )
 }
 export default Media;

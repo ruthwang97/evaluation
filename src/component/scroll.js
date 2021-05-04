@@ -1,21 +1,18 @@
-import pic1 from "./images/developerdesign.svg";
-import pic2 from "./images/responsivedesign.svg";
-import pic3 from "./images/innovativesolutions.svg";
-import pic4 from "./images/passion.svg";
-import pic5 from "./images/facebook.svg";
-import pic6 from "./images/linkedin.svg";
-import pic7 from "./images/pinterest.svg";
-import pic8 from "./images/email.svg";
-import React, { useState, useContext } from 'react';
-import Summary from './component/summary';
-import Navigation from './component/navigation';
-import Button from './component/button'
-import Project from './component/project'
-import './App.css';
-import Media from './component/media'
-import withHandler from './component/hoc'
-import {FontColorContext} from './App'
+import pic1 from "../images/developerdesign.svg";
+import pic2 from "../images/responsivedesign.svg";
+import pic3 from "../images/innovativesolutions.svg";
+import pic4 from "../images/passion.svg";
 
+import React, { useState, useContext } from 'react';
+import Summary from './summary';
+import Navigation from './navigation';
+import Button from './button'
+import Project from './project'
+import '../App.css';
+import {FontColorContext} from '../App'
+import Intro from './intro'
+import About from './about'
+import Footer from './footer'
 
 const Scroll = () =>{
     const context = useContext(FontColorContext)
@@ -53,83 +50,8 @@ const Scroll = () =>{
 
     return(<div>
         <Navigation />
-        <div class = "main">
-			<div class = "container-fluid">
-				<div class = "row">
-					<div class = "entry-banner text-center">
-						<h1 id = "hello" >Hello, I'm</h1>
-						<h1 id = "name">XXXX</h1>
-						<h1 id = "person-description">UI Developer. UX Desinger. Problem Solver.</h1>
-					</div>
-				</div>
-
-				<div class = "row text-center">
-					<div class = "banner-buttons">
-						<div class = "col-sm-1 col-md-1 col-sm-offset-5 col-md-offset-5">
-                            <Button href = "#about" text="Info"/>
-						</div>
-
-						<div class = "col-sm-1 col-md-1">
-                            <Button href = "#projects" text = "Portfolio"/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-        <div class = "about" id="about">
-			<div class = "container-fluid">
-				<div class = "row">
-					<div class = "col-sm-12 col-md-12 text-center">
-						<div class = "about-header">
-							<h1>About Me</h1>
-						</div>
-					</div>
-				</div>
-
-				<div class = "row">
-					<div class = "col-sm-12 col-md-12 text-center">
-						<div class = "about-header-quote">
-							<h3>Sharing a little bit of my story...</h3>
-						</div>
-					</div>
-				</div>
-
-				<div class = "row">
-					<div class = "about-general-description ">
-						<div class = "col-sm-8 col-md-8 ">
-							<h2>General Overview</h2>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-						</div>
-					</div>
-				</div>
-
-				<div class = "row">
-					<div class = "statistic-row">
-					<div class = "about-statistic-description">
-						<div class = "col-sm-8 col-md-8">
-							<h2>Statistics</h2>
-							<h5><em>And for those that don't fancy reading:</em></h5>
-                            <div> </div>
-							<p>Male, 200 years old.</p>
-							<p>Five feet 110 inches</p>
-							<p>Favorite fonts:Roboto </p>
-							<p>Loves to learn new things</p>
-	
-						</div>
-					</div>
-					</div>
-				</div>
-
-				<div class = "row">
-					<div class = "about-option-buttons">
-						<div class = "col-sm-2 col-md-2">
-                            <Button href = "#contact" text = "Contact" black={true}/>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
+        <Intro />
+        <About />
 
         <div class = "summary">
 			<div class = "container-fluid">
@@ -154,7 +76,7 @@ const Scroll = () =>{
 				<div class = "row">
 					<div class = "col-sm-12 col-md-12 text-center">
 						<div class = "projects-header">
-							<h1 style={{fontFamily:`context`}}>Projects and Portfolio</h1>
+							<h1 style={{fontFamily:context}}>Projects and Portfolio</h1>
 						</div>
 					</div>
 				</div>
@@ -188,7 +110,7 @@ const Scroll = () =>{
 				<div class = "row">
 					<div class = "col-sm-12 col-md-12 text-center">
 						<div class = "contact-header">
-							<h1 style={{fontFamily:`context`}}>Contact</h1>
+							<h1 style={{fontFamily:context}}>Contact</h1>
 						</div>
 					</div>
 				</div>
@@ -270,75 +192,7 @@ const Scroll = () =>{
 				</div>
 			</div>
 		</div>
-        <div class = "footer">
-			<div class = "container-fluid">
-				<div class = "row">
-					<div class = "media-links">
-                        <Media first = {true} group = "facebook" src = {pic5}/>
-						<Media first = {false} group = "linkedin" src = {pic6}/>
-                        <Media first = {false} group = "pinterest" src = {pic7}/>
-                        <Media first = {false} group = "email-icon" src = {pic8}/>
-					</div>
-				</div>
-
-				<div class = "row">
-					<div class = "col-sm-6 col-md-6 text-right">
-						<div class = "personal-contact phone">
-							<h4>Phone: XXXXXX</h4>
-						</div>
-					</div>
-
-					<div class = "col-sm-6 col-md-6 text-left">
-						<div class = "personal-contact email-personal-contact">
-							<h4>Email: XXXXX@gmail.com</h4>
-						</div>
-					</div>
-				</div>
-
-				<div class = "row">
-					<div class = "col-sm-4 col-md-4 text-center">
-						<div class = "company-information">
-							<h3>XXXX</h3>
-							<h4>Copyright &copy; 2021</h4>
-							<h4>NY</h4>
-						</div>
-					</div>
-
-					<div class = "col-sm-2 col-md-2 text-center">
-						<div class = "home-footer">
-							<h4><a href = "#">Home</a></h4>
-						</div>
-					</div>
-
-					<div class = "col-sm-2 col-md-2 text-center">
-						<div class = "portfolio-footer">
-							<h4><a href = "#">Portfolio</a></h4>
-							<ul>
-								<li><a href = "#">Project1</a></li>
-								<li><a href = "#">Project2</a></li>
-								<li><a href = "#">Project3</a></li>
-								<li><a href = "#">See All</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class = "col-sm-2 col-md-2 text-center">
-						<div class = "resume-footer">
-							<h4><a href = "#">Resume</a></h4>
-							<ul>
-								<li><a href = "#">Download</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class = "col-sm-2 col-md-2 text-center">
-						<div class = "contact-footer">
-							<h4><a href = "#">Contact</a></h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <Footer />
     </div>
     
     

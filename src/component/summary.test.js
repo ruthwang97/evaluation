@@ -10,4 +10,4 @@ test('render', () => {
 test('render', () => {
     const {container} = render(<Summary />)
     expect(container.querySelector('h3')).toBeInTheDocument();
-  });
+});

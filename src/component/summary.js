@@ -1,6 +1,4 @@
-
 const Summary = (props) => {
-
     return(
     <>
 <div class = {props.group1}>
