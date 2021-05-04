@@ -1,4 +1,3 @@
-import logo from "./images/logo.svg";
 import pic1 from "./images/developerdesign.svg";
 import pic2 from "./images/responsivedesign.svg";
 import pic3 from "./images/innovativesolutions.svg";
@@ -9,6 +8,9 @@ import pic7 from "./images/pinterest.svg";
 import pic8 from "./images/email.svg";
 import React, { useState } from 'react';
 import Summary from './component/summary';
+import Navigation from './component/navigation';
+import Button from './component/button'
+import Project from './component/project'
 const Scroll = () =>{
     const [input1 ,setInput1] = useState('');
     const [input2 ,setInput2] = useState('');
@@ -41,27 +43,7 @@ const Scroll = () =>{
     }
 
     return(<div>
-        <div class = "navigation">
-			<div class = "container-fluid">
-				<div class = "row">
-					<div class = "col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center">
-						<div class = "logo">
-							<a href = "index.html"><img src = {logo} /></a>
-						</div>
-					</div>
-
-					<div class = "col-xs-11 col-sm-11 col-md-11 col-lg-11 text-right">
-						<div class = "primary-nav">
-							<ul>
-								<li><a href = "index.html">Home</a></li>
-								<li><a href = "portfolio.html">Portfolio</a></li>
-								<li><a href = "contact.html">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <Navigation />
         <div class = "main">
 			<div class = "container-fluid">
 				<div class = "row">
@@ -75,11 +57,11 @@ const Scroll = () =>{
 				<div class = "row text-center">
 					<div class = "banner-buttons">
 						<div class = "col-sm-1 col-md-1 col-sm-offset-5 col-md-offset-5">
-							<a class = "btn btn-default btn-border" href = "#about">Info</a>
+                            <Button href = "#about" text="Info"/>
 						</div>
 
 						<div class = "col-sm-1 col-md-1">
-							<a class = "btn btn-default btn-border" href = "#projects">Portfolio</a>
+                            <Button href = "#projects" text = "Portfolio"/>
 						</div>
 					</div>
 				</div>
@@ -132,7 +114,7 @@ const Scroll = () =>{
 				<div class = "row">
 					<div class = "about-option-buttons">
 						<div class = "col-sm-2 col-md-2">
-							<a href = "#contact" class = "btn btn-default btn-black-border">Contact</a>
+                            <Button href = "#contact" text = "Contact" black={true}/>
 						</div>
 					</div>
 				</div>
@@ -143,63 +125,17 @@ const Scroll = () =>{
         <div class = "summary">
 			<div class = "container-fluid">
 				<div class = "row">
-					<div class = "development-summary">
-						<div class = "col-sm-1 col-md-1">
-							<div class = "development-img">
-								<img class = "img-responsive" src = {pic1} />
-							</div>
-						</div>
-
-						<div class = "col-sm-4 col-md-4">
-							<div class = "development-description">
-                                <Summary title ="Development and Design" para = "I aim to put my creativity to the test, designing and building unique, meaningful products for clients or merely for my own interests." />
-							
-							</div>
-						</div>
-					</div>
-
-					<div class = "responsive-summary">
-						<div class = "col-sm-1 col-md-1 col-sm-offset-2 col-md-offset-2">
-							<div class = "responsive-img">
-								<img class = "img-responsive" src = {pic2} />
-							</div>
-						</div>
-
-						<div class = "col-sm-4 col-md-4">
-							<div class = "responsive-description">
-                                <Summary para = "Development and design isn't merely putting information on the site or preferred media outlet. I organize content and present information in an engaging fashion, driving new and unique layouts in tandem with novel solutions and cool animations." title="Responsive Layouts"/>
-								
-							</div>
-						</div>
-					</div>
+                    <Summary group1 = "development-summary" left={true} imgGroup = "development-img" src={pic1} group2 = "development-description" 
+                    title = "Development and Design" para = "I aim to put my creativity to the test, designing and building unique, meaningful products for clients or merely for my own interests."/>
+					<Summary group1 = "responsive-summary" left={false} imgGroup = "responsive-img" src={pic2} group2 = "responsive-description"
+                    para = "Development and design isn't merely putting information on the site or preferred media outlet. I organize content and present information in an engaging fashion, driving new and unique layouts in tandem with novel solutions and cool animations." title="Responsive Layouts" />
 				</div>
 
 				<div class = "row">
-					<div class = "ideas-summary">
-						<div class = "col-sm-1 col-md-1">
-							<div class = "idea-img">
-								<img class = "img-responsive" src = {pic3}/>
-							</div>
-						</div>
-
-						<div class = "col-sm-4 col-md-4">
-							<div class = "idea-description">
-                                <Summary para = "There are still many problems that exist in today's society, including laziness. Luckily, I hope to combat these issues by innovating, developing easy-to-use programs, solutions, or products." title = "Ideas and Solutions" />
-							</div>
-						</div>
-					</div>
-
-					<div class = "passion-summary">
-						<div class = "col-sm-1 col-md-1 col-sm-offset-2 col-md-offset-2">
-							<img class = "img-responsive" src = {pic4} />
-						</div>
-
-						<div class = "col-sm-4 col-md-4">
-							<div class = "passion-description">
-                                <Summary title = "Passion and Dedication" para = "With my profound interest and commitment to my field of study, my projects rarely go unfinished and my problems are never left unresolved."/>
-							</div>
-						</div>
-					</div>
+                    <Summary group1 = "ideas-summary" left = {true} imgGroup = "idea-img" src = {pic3} group2 = "idea-description" 
+                    para = "There are still many problems that exist in today's society, including laziness. Luckily, I hope to combat these issues by innovating, developing easy-to-use programs, solutions, or products." title = "Ideas and Solutions"/>
+                    <Summary group1 = "passion-summary" left={false} imgGroup = "img-responsive" src = {pic4} group2 = "passion-description"
+                    title = "Passion and Dedication" para = "With my profound interest and commitment to my field of study, my projects rarely go unfinished and my problems are never left unresolved."/>
 				</div>
 			</div>
 		</div>
@@ -222,53 +158,15 @@ const Scroll = () =>{
 				</div>
 
 				<div class = "row">
-					<div class = "col-sm-4 col-md-4 text-center">
-						<div class = "luvtalk-project">
-							<h3>LUV TALK Website</h3>
-							<p>Website, created during my first internship, which utilized HTML, CSS, PHP, Ajax, Javascript/jQuery, and Wordpress. </p>
-							<div class = "row">
-								<div class = "col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-									<div class = "project-more-info">
-										<a class = "btn btn-default btn-border" href = "#">More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class = "col-sm-4 col-md-4 text-center">
-						<div class = "personal-website-project">
-							<h3>Personal Website</h3>
-							<p>Enjoyable side project that was created to experiment with more HTML and CSS, but also provided an outlet to showcase my abilities and interests.</p>
-							<div class = "row">
-								<div class = "col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-									<div class = "project-more-info">
-										<a class = "btn btn-default btn-border" href = "#">More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class = "col-sm-4 col-md-4 text-center">
-						<div class = "strike-zone-project">
-							<h3>Strike Zone Analysis</h3>
-							<p>Data analytics project completed during my time at the Illinois Math and Science Academy which studied the baseball strike zone based on the state of the game.</p>
-							<div class = "row">
-								<div class = "col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-									<div class = "project-more-info">
-										<a class = "btn btn-default btn-border" href = "#">More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                    <Project group = "luvtalk-project" title = "LUV TALK Website" para = "Website, created during my first internship, which utilized HTML, CSS, PHP, Ajax, Javascript/jQuery, and Wordpress."/>
+                    <Project group = "personal-website-project" title = "Personal Website" para = "Enjoyable side project that was created to experiment with more HTML and CSS, but also provided an outlet to showcase my abilities and interests."/>
+                    <Project group = "strike-zone-project" title = "Strike Zone Analysis" para = "Data analytics project completed during my time at the Illinois Math and Science Academy which studied the baseball strike zone based on the state of the game."/>
 				</div>
 
 				<div class = "row">
 					<div class = "col-sm-2 col-md-2 col-sm-offset-5 col-md-offset-5">
 						<div class = "see-more-button">
-							<a class = "btn btn-default btn-border" href = "#">More Projects</a>
+                            <Button href = "#" text="More Projects"/>
 						</div>
 					</div>
 				</div>
